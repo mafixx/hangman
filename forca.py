@@ -14,6 +14,100 @@ def limpa_tela():
     # Mac ou Linux
     else:
         _ = system('clear')
+        
+# Desenhando a "forca" na tela
+def mostrar_forca(chances):
+    estagios = [ # estágio 1 a 10
+        """
+           -----
+           |   |
+          [O]  |
+          /|\\  |
+         _/ \\_ |
+               |
+        """,
+        """
+           -----
+           |   |
+          [O]  |
+          /|\\  |
+         _/ \\  |
+               |
+        """,
+        """
+           -----
+           |   |
+          [O]  |
+          /|\\  |
+          / \\  |
+               |
+        """,
+        """
+           -----
+           |   |
+          [O   |
+          /|\\  |
+          / \\  |
+               |
+        """,
+        """
+           -----
+           |   |
+           O   |
+          /|\\  |
+          / \\  |
+               |
+        """,
+        """
+           -----
+           |   |
+           O   |
+          /|\\  |
+          /    |
+               |
+        """,
+        """
+           -----
+           |   |
+           O   |
+          /|\\  |
+               |
+               |
+        """,
+        """
+           -----
+           |   |
+           O   |
+          /|   |
+               |
+               |
+        """,
+        """
+           -----
+           |   |
+           O   |
+           |   |
+               |
+               |
+        """,
+        """
+           -----
+           |   |
+           O   |
+               |
+               |
+               |
+        """,
+        """
+           -----
+           |   |
+               |
+               |
+               |
+               |
+        """
+    ]
+    return estagios[chances]
 
 # Função
 def game():
@@ -51,13 +145,19 @@ def game():
 
     # Loop enquanto o número de chances for maior que zero
     while chances > 0:
-        # Print
+        
+        print(mostrar_forca(chances))# Print
         print(" ".join(letras_descobertas))
         print("\nChances restantes:", chances)
         print("Letras erradas:", " ".join(letras_erradas))
         
         # Tentativa
         tentativa = input("\nDigite uma letra: ").lower()
+        
+        # Condicional de verificação de letra repetida
+        if tentativa in letras_erradas:
+            print("Você já tentou essa letra. Escolha outra.")
+            continue
         
         # Condicional
         if tentativa in palavra:
