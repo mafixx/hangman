@@ -1,4 +1,5 @@
 import random
+from colorama import Fore
 from os import system, name
 
 class Hangman:
@@ -115,8 +116,11 @@ class Hangman:
 
     def game(self):
         self.limpa_tela()
+        print(f"{Fore.RED}ʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭ")
+        print(f"ʭʭʭʭʭʭʭʭʭʭ {Fore.WHITE}HANGMAN{Fore.RED} ʭʭʭʭʭʭʭʭʭʭ")
+        print(f"ʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭ{Fore.WHITE}")
         print("\nBem vindo(a) ao jogo da forca!")
-        print("Adivinhe a palavra abaixo:\n")
+        print(f"Adivinhe a palavra abaixo:\n{Fore.GREEN}")
 
         while self.chances > 0:
             print(self.mostrar_forca())# Print
@@ -144,7 +148,7 @@ class Hangman:
             
             # Verificação se todas as letras foram descobertas (condicional)
             if "_" not in self.letras_descobertas:
-                print("\nParabéns! Você ganhou! A  palavra era: ", self.palavra_original)
+                print("\nParabéns! Você ganhou! A palavra era: ", self.palavra_original)
                 break
         
         #  Se as chances acabarem, mostrar mensagem de derrota e sair do loop
