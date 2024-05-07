@@ -123,6 +123,12 @@ class Hangman:
         print(f"Adivinhe a palavra abaixo:\n{Fore.GREEN}")
 
         while self.chances > 0:
+            self.limpa_tela()
+            print(f"{Fore.RED}ʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭ")
+            print(f"ʭʭʭʭʭʭʭʭʭʭ {Fore.WHITE}HANGMAN{Fore.RED} ʭʭʭʭʭʭʭʭʭʭ")
+            print(f"ʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭʭ{Fore.WHITE}")
+            print("\nBem vindo(a) ao jogo da forca!")
+            print(f"Adivinhe a palavra abaixo:\n{Fore.GREEN}")
             print(self.mostrar_forca())# Print
             print(" ".join(self.letras_descobertas))
             print("\nChances restantes:", self.chances)
